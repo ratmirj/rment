@@ -1,8 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const searchBar = () => (
-    <div>Component draft</div>
+const SearchBar = () => (
+    <form>
+        <input type="text"/>
+        <button>Search</button>
+    </form>
 );
 
-export default searchBar
+export { SearchBar }

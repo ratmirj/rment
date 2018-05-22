@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const searchResults = () => (
-    <div>Component draft</div>
+const SearchResult = () => (
+    <div> Search results </div>
 );
 
-export default searchResults
+export {SearchResult}

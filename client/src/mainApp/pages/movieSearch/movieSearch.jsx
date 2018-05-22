@@ -1,8 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {SearchBar} from "./searchBar/searchBar";
+import {SearchResult} from "./searchResults";
 
-const movieSearch = () => (
-    <div>movieSearch</div>
+const MovieSearch = () => (
+    <div>
+        <SearchBar/>
+        <SearchResult/>
+    </div>
 );
 
-export default movieSearch
+export { MovieSearch }
