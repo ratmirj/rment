@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --env",
     "build-prod": "webpack --env.production",
-    "start": "webpack-dev-server --open --env",
+    "start": "webpack-dev-server --open --env --mode development",
     "test": "jest"
   },
   "author": "",

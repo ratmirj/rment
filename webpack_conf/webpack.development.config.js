@@ -14,7 +14,7 @@ module.exports = function(exec_dir){
             publicPath: '/'
     },
         resolve: {
-            extensions: ['.js']
+            extensions: ['.js', '.jsx']
         },
         devServer: {
             hot: true,
@@ -24,7 +24,7 @@ module.exports = function(exec_dir){
         },
         module: {
             rules: [{
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: ["/node_modules/", "/first-task/"],
                 use: {
                     loader: 'babel-loader',
