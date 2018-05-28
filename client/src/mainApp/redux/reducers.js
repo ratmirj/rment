@@ -1,9 +1,43 @@
+import { combineReducers } from 'redux';
+
+import {
+  REQUEST_MOVIES_START,
+  REQUEST_MOVIES_SUCCESS,
+} from './actions.types'
+
 const initialState = {
-    movies: []
+    movies: {
+      isFetching: false,
+      list: [],
+      error: {}
+    }
 };
 
-function movieApp(state, action) {
-    return state
+function movies(
+  state = initialState,
+  action
+) {
+  switch (action.type) {
+    case REQUEST_MOVIES_START:
+      return Object.assign({}, state, {
+        movies: {
+          isFetching: true
+        }
+      })
+    case REQUEST_MOVIES_SUCCESS:
+      return Object.assign({}, state, {
+        movies: {
+          isFetching: false,
+          list: action.list
+        }
+      })
+    default:
+      return state
+  }
 }
 
-export { movieApp };
+const rootReducer = combineReducers({
+  movies
+})
+
+export default rootReducer

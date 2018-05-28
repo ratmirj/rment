@@ -1,1 +1,0 @@
-export { movieDetail } from './moveDetail'
