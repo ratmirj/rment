@@ -1,1 +1,1 @@
-export { movieItem } from './movieItem'
+export { MovieItem } from './movieItem'
