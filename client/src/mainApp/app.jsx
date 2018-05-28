@@ -1,10 +1,20 @@
 import React from 'react';
-import {moviePage} from './pages/moviePage/';
-import {MovieSearch} from './pages/movieSearch/';
-
+import { MoviesList } from './containers/moviesList/';
+import { MovieSearch } from './containers/movieSearch/';
 
 const MainApp = () => (
-    <MovieSearch/>
+    <div>
+      <MovieSearch/>
+      <MoviesList />
+    </div>
 );
 
 export { MainApp };
+
+
+/*
+<Routes>
+  <MovieDetail />
+  <MovieList />
+</Routes>
+*/
