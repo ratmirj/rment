@@ -25,8 +25,8 @@ module.exports = function(exec_dir){
         },
         module: {
             rules: [{
-                test: /\.js$/,
-                exclude: ["/node_modules/", "/first-task/"],
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                     options: {

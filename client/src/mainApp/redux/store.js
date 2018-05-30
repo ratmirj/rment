@@ -1,21 +1,23 @@
-import { createStore, applyMiddleware } from 'redux';
-// import { createLogger } from 'redux-logger'
-import createSagaMiddleware from 'redux-saga';
+import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers';
-import rootSaga from './sagas';
+import { DevTools } from '../components/redux-devtools'
+import  thunk from 'redux-thunk';
 
-// const loggerMiddleware = createLogger()
-const sagaMiddleware = createSagaMiddleware()
+const enhancer = compose(
+
+    applyMiddleware(thunk),
+    // Required! Enable Redux DevTools with the monitors you chose
+    DevTools.instrument()
+);
 
 export default function configureStore(preloadedState = {}) {
   return createStore(
     rootReducer,
     preloadedState,
-    applyMiddleware(
-      //sagaMiddleware
-      //loggerMiddleware
-    )
+    // applyMiddleware(
+      //     //   //sagaMiddleware
+      //     //   //loggerMiddleware
+      //     // )
+    enhancer
   )
 }
-
-//sagaMiddleware.run(rootSaga)

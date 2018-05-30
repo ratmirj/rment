@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 import {
   REQUEST_MOVIES_START,
   REQUEST_MOVIES_SUCCESS,
+  REQUEST_MOVIES_FAILURE
 } from './actions.types'
 
 const initialState = {
@@ -23,14 +24,21 @@ function movies(
         movies: {
           isFetching: true
         }
-      })
+      });
     case REQUEST_MOVIES_SUCCESS:
       return Object.assign({}, state, {
         movies: {
           isFetching: false,
           list: action.list
         }
-      })
+      });
+    case REQUEST_MOVIES_FAILURE:
+      return Object.assign({}, state, {
+          movies: {
+              isFetching: false,
+              error: action.e
+          }
+      });
     default:
       return state
   }
