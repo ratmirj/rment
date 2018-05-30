@@ -18,6 +18,7 @@ function movies(
   state = initialState,
   action
 ) {
+  console.log(action, state);
   switch (action.type) {
     case REQUEST_MOVIES_START:
       return Object.assign({}, state, {

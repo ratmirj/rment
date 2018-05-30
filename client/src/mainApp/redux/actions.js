@@ -3,8 +3,9 @@ import { REQUEST_MOVIES_START, REQUEST_MOVIES_SUCCESS, REQUEST_MOVIES_FAILURE} f
 
 const apiEndpoint = "http://react-cdp-api.herokuapp.com/movies?";
 
-function searcgMoviesByTitle(title){
+function searchMoviesByTitle(title){
   return fetch(apiEndpoint + `search=${title}`)
+  .then(resp => resp.json() )
 }
 
 export function requestMovies(id) {
@@ -13,7 +14,7 @@ export function requestMovies(id) {
   }
 }
 
-export function searchMoviesByTitle(title) {
+export function STARTsearchMoviesByTitle(title) {
     return {
         type: REQUEST_MOVIES_START,
     }
@@ -34,10 +35,15 @@ export function displayError(error) {
 
 }
 
-export function reciveMoviesByTitle(title) {
-    return searcgMoviesByTitle(title).then(
+// TODO check action creators topic -> this one can stay but rewrite next ones to use helperMethod bindActionCreators
+// const receiveMovies = title => dispatch => {}
+export function getMoviesByTitle(title) {
+  return (dispatch) => {
+    dispatch(STARTsearchMoviesByTitle());
+
+    return searchMoviesByTitle(title).then(
         result => dispatch(receiveMovies(result)),
         error => dispatch(displayError(error))
     );
-
+  }
 }

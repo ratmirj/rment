@@ -12,7 +12,7 @@ render(
     <Provider store={store}>
     <ErrorBoundary>
         <MainApp/>
-        {/*<DevTools/>*/}
+        {<DevTools/>}
     </ErrorBoundary>
     </Provider>,
     document.getElementById('root')
